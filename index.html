@@ -210,8 +210,37 @@ input[type=range]{width:100%;accent-color:var(--blue);height:4px;margin:.18rem 0
 .ph-zh{font-size:.72rem;font-weight:600;color:var(--tx)}
 .ph-jp{font-size:.72rem;color:var(--purple);font-weight:500}
 .ph-kana{font-size:.62rem;color:var(--tx3)}
-.cp-btn{padding:.19rem .34rem;border:.5px solid var(--bd);border-radius:8px;background:var(--sf2);font-size:.6rem;color:var(--tx2);min-width:30px;min-height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer}
-.cp-btn:active{background:var(--sf3)}
+.ph-btns{display:flex;gap:.22rem;flex-shrink:0}
+.cp-btn,.sp-btn{padding:.19rem .34rem;border:.5px solid var(--bd);border-radius:8px;background:var(--sf2);font-size:.68rem;color:var(--tx2);min-width:30px;min-height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer}
+.cp-btn:active,.sp-btn:active{background:var(--sf3)}
+.sp-btn{color:var(--blue)}
+.sp-btn.speaking{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* JST CLOCK */
+.jst-bar{background:var(--sf);border-radius:var(--r18);padding:.65rem 1rem;margin-bottom:.82rem;box-shadow:var(--sh);border:.5px solid var(--bd);display:flex;align-items:center;justify-content:space-between}
+.jst-label{font-size:.68rem;color:var(--tx2);font-weight:500}
+.jst-time{font-size:1.1rem;font-weight:700;color:var(--tx);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.jst-date{font-size:.62rem;color:var(--tx3);text-align:right}
+
+/* CALCULATOR */
+.calc-card{background:var(--sf);border-radius:var(--r22);padding:.9rem .95rem;margin-bottom:.82rem;box-shadow:var(--sh);border:.5px solid var(--bd)}
+.calc-card h3{font-size:.76rem;font-weight:600;color:var(--tx2);margin-bottom:.7rem;display:flex;align-items:center;gap:.28rem}
+.calc-row{display:flex;align-items:center;gap:.5rem}
+.calc-input{flex:1;background:var(--sf2);border:.5px solid var(--bd);border-radius:var(--r14);padding:.55rem .75rem;font-size:1rem;font-weight:600;color:var(--tx);font-family:var(--font);outline:none;min-height:44px;font-variant-numeric:tabular-nums}
+.calc-input:focus{border-color:var(--blue)}
+.calc-eq{font-size:1rem;color:var(--tx3)}
+.calc-result{flex:1;background:var(--sf2);border-radius:var(--r14);padding:.55rem .75rem;font-size:1rem;font-weight:700;color:var(--blue);min-height:44px;display:flex;align-items:center;border:.5px solid var(--bd)}
+.calc-rates{display:flex;gap:.4rem;margin-top:.55rem;flex-wrap:wrap}
+.calc-rate{font-size:.68rem;color:var(--tx2);background:var(--sf2);padding:.22rem .55rem;border-radius:999px;border:.5px solid var(--bd)}
+
+/* WEATHER TEMP TOGGLE */
+.temp-toggle{display:flex;background:var(--sf2);border-radius:999px;padding:.18rem;border:.5px solid var(--bd);gap:.15rem;align-self:flex-start}
+.temp-btn{padding:.22rem .6rem;border-radius:999px;background:transparent;border:none;font-size:.68rem;font-weight:600;color:var(--tx2);cursor:pointer;min-height:28px}
+.temp-btn.on{background:var(--sf);color:var(--tx);box-shadow:var(--sh)}
+
+/* SHARE BUTTON */
+.share-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.6rem;background:var(--blue);color:#fff;border:none;border-radius:var(--r14);font-size:.78rem;font-weight:600;min-height:46px;cursor:pointer;margin-bottom:.82rem;font-family:var(--font)}
+.share-btn:active{opacity:.8}
 
 /* INFO */
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
@@ -334,6 +363,11 @@ input[type=range]{width:100%;accent-color:var(--blue);height:4px;margin:.18rem 0
 
 <!-- ══ 行程 ══ -->
 <div id="sc-it" class="sc on">
+  <!-- JST 時鐘 -->
+  <div class="jst-bar">
+    <div><div class="jst-label">🇯🇵 日本時間（JST）</div><div class="jst-time" id="jst-time">--:--:--</div></div>
+    <div class="jst-date" id="jst-date"></div>
+  </div>
   <div class="prog-card">
     <div class="prog-row"><span>行程進度</span><span id="prog-txt">0 / 6</span></div>
     <div class="prog-bar-bg"><div class="prog-bar-fill" id="prog-fill" style="width:0%"></div></div>
